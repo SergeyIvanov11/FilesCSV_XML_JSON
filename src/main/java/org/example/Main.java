@@ -10,7 +10,10 @@ import com.opencsv.bean.CsvToBeanBuilder;
 import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import org.w3c.dom.*;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -85,13 +88,12 @@ public class Main {
                 Node node = nodeList.item(i);
                 if (Node.ELEMENT_NODE == node.getNodeType()) {
                     Element element = (Element) node;
-                    NamedNodeMap map = element.getAttributes();
-                    Employee newEmp = new Employee(
-                            Integer.parseInt(map.item(0).getNodeValue()),
-                            map.item(1).getNodeValue(),
-                            map.item(2).getNodeValue(),
-                            map.item(3).getNodeValue(),
-                            Integer.parseInt(map.item(4).getNodeValue()));
+                    long currentId = Integer.parseInt(element.getElementsByTagName("id").item(0).getTextContent());
+                    String currentFirstName = element.getElementsByTagName("firstName").item(0).getTextContent();
+                    String currentLastName = element.getElementsByTagName("lastName").item(0).getTextContent();
+                    String currentCountry = element.getElementsByTagName("country").item(0).getTextContent();
+                    int currentAge = Integer.parseInt(element.getElementsByTagName("age").item(0).getTextContent());
+                    Employee newEmp = new Employee(currentId, currentFirstName, currentLastName, currentCountry, currentAge);
                     staff.add(newEmp);
                 }
             }
