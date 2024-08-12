@@ -4,7 +4,7 @@
 Файл `data.csv` со следующим содержимым в корневой папке проекта:
 ```csv
 1,John,Smith,USA,25
-2,Inav,Petrov,RU,23
+2,Ivan,Petrov,RU,23
 ```
 А также класс `Employee`, который будет содержать информацию о сотрудниках.
 ```java
@@ -48,7 +48,7 @@ public class Employee {
   },
   {
     "id": 2,
-    "firstName": "Inav",
+    "firstName": "Ivan",
     "lastName": "Petrov",
     "country": "RU",
     "age": 23
@@ -78,7 +78,7 @@ public class Employee {
     </employee>
 </staff>
 ```
-## Выходныее данные:
+## Выходные данные:
 В резльтате работы программы в корне проекта появится файл `data1.json` со следующим содержимым:
 ```json
 [
